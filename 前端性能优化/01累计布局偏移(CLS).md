@@ -3,7 +3,7 @@ CLS，全称是 Cumulative Layout Shift，中文名是累计布局偏移，是 G
 简称**页面视觉稳定性**。
 
 ### 二：为什么 CLS 重要
-当页面在加载过程中，用户想与页面有交互（如点击按钮），但其实网页还没有加载好，用户本想点击按钮A，可点到了按钮B上。
+在阅读文章的同时文字突然移动了、你突然找不到你阅读的位置了、点按钮的时候按钮被移动到了其他地方，导致你点了其他东西。
 
 ### 三：造成 CLS 问题的原因
 1. images without dimensions：未指定尺寸的图片
@@ -13,7 +13,10 @@ CLS，全称是 Cumulative Layout Shift，中文名是累计布局偏移，是 G
 5. Actions waiting for a network response before updating DOM：动画
 
 ### 四：如何查看CLS
-在performce中，如果有红色`Layout Shift`，说明需要对页面视觉稳定性进行优化
+在performce中，如果有红色`Layout Shift`，说明需要对页面视觉稳定性进行优化。
+
+优化完 CLS 后，可以去 Google PageSpeed Insights 检查下是否还存在 CLS 问题
+[https://developers.google.com/speed/pagespeed/insights/](https://developers.google.com/speed/pagespeed/insights/)
 
 ### 五：总结
 1. 图片的尺寸，以及其他嵌入元素的尺寸，最开始就设定好，或者预留足够空间，这样可以有效避免布局偏移。
@@ -27,3 +30,5 @@ CLS，全称是 Cumulative Layout Shift，中文名是累计布局偏移，是 G
 [https://web.dev/optimize-cls/](https://web.dev/optimize-cls/)
 
 [https://blog.csdn.net/wuchen092832/article/details/108313270](https://blog.csdn.net/wuchen092832/article/details/108313270)
+
+[前端性能优化](https://blog.csdn.net/qiwoo_weekly/article/details/106449805)
