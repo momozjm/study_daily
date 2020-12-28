@@ -25,3 +25,10 @@ token的用法与好处：
 - refresh token 是专用于刷新 access token 的 token，refresh token可以做到用户无感知的获取最新access token
 - Access Token 的有效期比较短，当 Acesss Token 由于过期而失效时，使用 Refresh Token 就可以获取到新的 Token，如果 Refresh Token 也失效了，用户就只能重新登录了。
 - Refresh Token 及过期时间是存储在服务器的数据库中，只有在申请新的 Acesss Token 时才会验证，不会对业务接口响应时间造成影响，也不需要向 Session 一样一直保持在内存中以应对大量的请求。
+
+
+### 使用 token 时需要考虑的问题
+1. 如果你认为用数据库来存储 token 会导致查询时间太长，**可以选择放在内存当中**。比如 **redis** 很适合你对 token 查询的需求。
+2. token 完全由应用管理，所以它**可以避开同源策略**
+3. token **可以避免 CSRF 攻击**(因为不需要 cookie 了)
+4. 移动端对 cookie 的支持不是很好，而 session 需要基于 cookie 实现，所以**移动端常用的是 token**
