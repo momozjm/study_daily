@@ -21,6 +21,11 @@ export default React.memo(MyComponent, areEqual);
 使用方式很简单，在 Function Component 之外，在声明一个 areEqual 方法来判断两次 props 有什么不同，如果第二个参数不传递，则默认只会进行 props 的浅比较。
 
 ### 二、useMemo()
+React.memo() 的使用我们可以发现，最终都是在最外层包装了整个组件，并且需要手动写一个方法比较那些具体的 props 不相同才进行 re-render。
+
+而在某些场景下，我们只是希望 component 的部分不要进行 re-render，而不是整个 component 不要 re-render，也就是要实现 局部 Pure 功能。
+
+
 把“创建”函数和依赖项数组作为参数传入 useMemo，它仅会在某个依赖项改变时才重新计算 memoized 值。这种优化有助于避免在每次渲染时都进行高开销的计算。**和vue的computed属性类似**
 
 基本用法如下：
