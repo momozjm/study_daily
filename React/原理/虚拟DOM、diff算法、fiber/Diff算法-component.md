@@ -13,4 +13,4 @@ React 是基于组件构建应用的，对于组件间的比较所采取的策�
 
 如下图，当 component D 改变为 component G 时，即使这两个 component **结构相似**，一旦 React 判断 D 和 G 是**不同类型**的组件，就不会比较二者的结构，而是**直接删除** component D，重新创建 component G 以及其子节点。虽然当两个 component 是不同类型但结构相似时，React diff 会影响性能，但正如 React 官方博客所言：**不同类型的 component 是很少存在相似 DOM tree 的机会，因此这种极端因素很难在实现开发过程中造成重大影响的。**
 
-![avatar](../images/tree-component.jpg)
+![avatar](../../images/tree-component.jpg)

@@ -61,7 +61,19 @@ ReactDOM.render(
 ```
 
 #### 三、jsx渲染到页面的过程
-![avatar](../images/jsx.jpg)
+![avatar](../../images/jsx.jpg)
+
+1. **基于babel-preset-react-app把JSX语法变为React.createElement的模式**
+   - 只要遇到元素标签（或组件）都要调用createElement
+   - createElement的前两个参数是固定的：标签名（组件名）、属性，第三个及以后的参数是子元素
+如果传递了属性，第二个参数是一个对象（包含了各属性的信息），没有传递属性则第二个参数为null
+2. **基于React.createElement方法执行创建出虚拟DOM对象（JSX对象）**
+   - 首先创建一个对象
+   - type属性存储的是标签名或组件
+   - props属性：如果没有传递任何属性，也没有任何子元素，则为空对象；把传递的createElement的属性，都赋值给props；如果有子元素则新增一个children属性，可能是一个值也可能是一个数组
+3. **基于ReactDOM.render把创建的虚拟DOM对象渲染到页面指定的容器中**
+   - ReactDOM.render([jsxObj],[container],[callback])，render接收三个参数：jsx对象，页面指定的容器和回调函数（可不传）
+   - callback渲染触发的回调函数，在这里可以获取到真实DOM
 
 
 #### 四、为什么不直接从 JSX 直接渲染构造 DOM 结构，而是要经过中间这么一层呢

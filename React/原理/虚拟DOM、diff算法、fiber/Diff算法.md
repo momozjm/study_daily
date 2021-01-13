@@ -16,12 +16,14 @@ React diff 会帮助我们计算出 Virtual DOM 中真正变化的部分，并�
 2. 拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构。
 3. 对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。
 
-基于以上三个前提策略，React 分别对 tree diff、component diff 以及 element diff 进行算法优化，事实也证明这三个前提策略是合理且准确的，它保证了整体界面构建的性能。
+基于以上三个前提策略，**React 分别对 tree diff、component diff 以及 element diff 进行算法优化，执行时按顺序依次执行**。R事实也证明这三个前提策略是合理且准确的，它保证了整体界面构建的性能。
 > tree diff
 > 
 > component diff
 > 
 > element diff
+
+![avatar](../../images/diff-all.png)
 
 #### 四、总结
 > React 通过制定大胆的 diff 策略，将 O(n3) 复杂度的问题转换成 O(n) 复杂度的问题；
